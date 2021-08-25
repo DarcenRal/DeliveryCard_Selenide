@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/jlg2dw2tqd8osb8k?svg=true)](https://ci.appveyor.com/project/DarcenRal/deliverycard-selenide)
