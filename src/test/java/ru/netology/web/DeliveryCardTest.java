@@ -3,11 +3,13 @@ package ru.netology.web;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Condition.visible;
@@ -34,5 +36,7 @@ public class DeliveryCardTest {
         $("[data-test-id='agreement']").click();
         $(By.className("button")).click();
         $(withText("Успешно!")).shouldBe(visible, Duration.ofSeconds(15));
+        $("[data-test-id='notification'] .notification__content")
+                .shouldHave(exactText("Встреча успешно забронирована на " + formatter.format(later)));
     }
 }
